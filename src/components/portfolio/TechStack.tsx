@@ -33,6 +33,8 @@ const TechStack = () => {
         { name: 'REST API', color: 'from-purple-400 to-pink-500' },
         { name: 'JWT Auth', color: 'from-yellow-400 to-orange-500' },
         { name: 'OAuth', color: 'from-red-400 to-pink-500' },
+        { name: 'Redis', color: 'from-cyan-400 to-pink-500' },
+
       ],
     },
     {
