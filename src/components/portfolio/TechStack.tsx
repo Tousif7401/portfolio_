@@ -1,5 +1,6 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
+import { MagicCard } from '@/components/ui/magic-card';
 import { fadeUpVariants, staggerContainerVariants, staggerFastContainerVariants } from '@/lib/animations';
 
 const TechStack = () => {
@@ -15,16 +16,23 @@ const TechStack = () => {
         { name: 'TypeScript', color: 'from-blue-400 to-blue-600' },
         { name: 'Tailwind CSS', color: 'from-teal-400 to-cyan-500' },
         { name: 'Framer Motion', color: 'from-pink-400 to-purple-500' },
+        { name: 'Redux', color: 'from-red-400 to-red-600' },
+
       ],
     },
     {
       title: 'Backend',
       skills: [
         { name: 'Node.js', color: 'from-green-400 to-green-600' },
-        { name: 'Python', color: 'from-yellow-400 to-blue-500' },
+        { name: 'Express.js', color: 'from-pink-400 to-pink-600' },
+        { name: 'Sequelize ORM', color: 'from-blue-400 to-indigo-500' },
+        { name: 'MySQL', color: 'from-orange-400 to-blue-500' },
         { name: 'PostgreSQL', color: 'from-blue-400 to-indigo-500' },
-        { name: 'MongoDB', color: 'from-green-400 to-lime-500' },
-        { name: 'GraphQL', color: 'from-pink-400 to-pink-600' },
+        { name: 'SendGrid', color: 'from-green-400 to-lime-500' },
+        { name: 'Swagger API', color: 'from-green-400 to-teal-500' },
+        { name: 'REST API', color: 'from-purple-400 to-pink-500' },
+        { name: 'JWT Auth', color: 'from-yellow-400 to-orange-500' },
+        { name: 'OAuth', color: 'from-red-400 to-pink-500' },
       ],
     },
     {
@@ -32,7 +40,7 @@ const TechStack = () => {
       skills: [
         { name: 'Git', color: 'from-orange-400 to-red-500' },
         { name: 'Docker', color: 'from-blue-400 to-cyan-500' },
-        { name: 'AWS', color: 'from-orange-400 to-yellow-500' },
+        { name: 'Postman', color: 'from-orange-400 to-yellow-500' },
         { name: 'Vercel', color: 'from-gray-400 to-gray-600' },
         { name: 'Figma', color: 'from-purple-400 to-pink-500' },
       ],
@@ -86,30 +94,16 @@ const TechStack = () => {
                   <motion.div
                     key={skill.name}
                     variants={fadeUpVariants}
-                    whileHover={{ 
-                      scale: 1.05,
-                      transition: { duration: 0.2 }
-                    }}
                     className="group relative"
                   >
-                    <div className="absolute inset-0 rounded-xl bg-gradient-to-r opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500 -z-10"
-                      style={{
-                        backgroundImage: `linear-gradient(to right, var(--tw-gradient-stops))`,
-                      }}
-                    />
-                    <div className="p-5 rounded-xl glass hover:border-primary/30 transition-all duration-300 cursor-pointer">
+                    <MagicCard className="p-5">
                       <div className="flex items-center gap-3">
                         <div className={`w-3 h-3 rounded-full bg-gradient-to-r ${skill.color}`} />
-                        <span className="font-medium text-foreground group-hover:text-primary transition-colors">
+                        <span className="font-medium text-white">
                           {skill.name}
                         </span>
                       </div>
-                      
-                      {/* Glow effect on hover */}
-                      <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                        <div className={`absolute inset-0 rounded-xl bg-gradient-to-r ${skill.color} opacity-10 blur-sm`} />
-                      </div>
-                    </div>
+                    </MagicCard>
                   </motion.div>
                 ))}
               </div>

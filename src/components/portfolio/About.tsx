@@ -1,6 +1,7 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Code2, Layers, Zap, Coffee } from 'lucide-react';
+import { MagicCard } from '@/components/ui/magic-card';
 import { fadeUpVariants, staggerContainerVariants } from '@/lib/animations';
 
 const About = () => {
@@ -8,9 +9,9 @@ const About = () => {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   const stats = [
-    { icon: Code2, value: '5+', label: 'Years Experience' },
-    { icon: Layers, value: '50+', label: 'Projects Completed' },
-    { icon: Zap, value: '99%', label: 'Client Satisfaction' },
+    { icon: Code2, value: 'Grand Finalist', label: 'SIH 2023' },
+    { icon: Layers, value: '10+', label: 'Projects Completed' },
+    { icon: Zap, value: 'Team-Oriented', label: 'Mindset' },
     { icon: Coffee, value: '∞', label: 'Cups of Coffee' },
   ];
 
@@ -40,19 +41,18 @@ const About = () => {
               variants={fadeUpVariants}
               className="text-lg text-muted-foreground leading-relaxed"
             >
-              I'm a passionate full-stack developer based in San Francisco, with a deep 
-              love for creating exceptional digital experiences. My journey in tech started 
-              5 years ago, and since then, I've had the privilege of working with startups, 
-              agencies, and enterprise companies.
+              I’m a passionate full-stack developer based in Ballari and open to relocation. 
+              With extensive experience in dynamic, high-pressure startup environments,
+              I've honed my ability to deliver robust and scalable web solutions. As a Smart India Hackathon grand
+              finalist and the creator of Clynicare, an innovative medical services platform, I specialize in modern technologies such as React, Next.js, Node.js, and TypeScript. My approach centers on writing clean,
+              maintainable code and crafting intuitive user experiences that drive real impact.
             </motion.p>
 
             <motion.p
               variants={fadeUpVariants}
               className="text-lg text-muted-foreground leading-relaxed"
             >
-              I specialize in building scalable web applications using modern technologies 
-              like React, Next.js, Node.js, and TypeScript. I believe in writing clean, 
-              maintainable code and creating intuitive user interfaces that make a real impact.
+              In my journey, I've cultivated a strong foundation in web development, blending hands-on startup experience with innovative project work. This combination enables me to tackle complex challenges and deliver elegant, user-centric web applications.
             </motion.p>
 
             <motion.div variants={fadeUpVariants}>
@@ -80,17 +80,18 @@ const About = () => {
               <motion.div
                 key={stat.label}
                 variants={fadeUpVariants}
-                className="group p-6 rounded-2xl glass hover-glow transition-all duration-300 hover:border-primary/30"
               >
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                  <stat.icon className="w-6 h-6 text-primary" />
-                </div>
-                <div className="text-3xl md:text-4xl font-bold text-gradient mb-2">
-                  {stat.value}
-                </div>
-                <div className="text-sm text-muted-foreground font-medium">
-                  {stat.label}
-                </div>
+                <MagicCard className="p-6">
+                  <div className="w-12 h-12 rounded-xl bg-purple-500/20 flex items-center justify-center mb-4">
+                    <stat.icon className="w-6 h-6 text-purple-400" />
+                  </div>
+                  <div className="text-xl md:text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-2">
+                    {stat.value}
+                  </div>
+                  <div className="text-sm text-gray-300 font-medium">
+                    {stat.label}
+                  </div>
+                </MagicCard>
               </motion.div>
             ))}
           </motion.div>

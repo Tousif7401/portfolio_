@@ -16,10 +16,10 @@ const Footer = () => {
           {/* Logo & Copyright */}
           <div className="flex flex-col items-center md:items-start gap-2">
             <span className="text-lg font-bold font-mono text-gradient">
-              &lt;AC /&gt;
+              &gt;_
             </span>
             <p className="text-sm text-muted-foreground flex items-center gap-1">
-              Made with <Heart className="w-3 h-3 text-red-500 fill-red-500" /> by Alex Chen
+              Made with <Heart className="w-3 h-3 text-red-500 fill-red-500" /> by Mohammed Tousif
             </p>
             <p className="text-xs text-muted-foreground">
               © {currentYear} All rights reserved.

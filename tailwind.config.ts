@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import tailwindcssAnimate from "tailwindcss-animate";
 
 export default {
   darkMode: ["class"],
@@ -16,8 +17,34 @@ export default {
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
         mono: ['JetBrains Mono', 'monospace'],
+        playfair: ['Playfair Display', 'serif'],
+      },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'gradient-primary': 'linear-gradient(90deg, #38BDF8, #A855F7)',
+        'gradient-bg': 'linear-gradient(180deg, #020617 0%, #020617 60%, #010314 100%)',
       },
       colors: {
+        // Premium color palette
+        navy: {
+          900: '#020617',
+          950: '#010314',
+        },
+        sky: {
+          400: '#38BDF8',
+        },
+        violet: {
+          400: '#A855F7',
+        },
+        gray: {
+          200: '#E5E7EB',
+          400: '#9CA3AF', 
+          500: '#6B7280',
+        },
+        success: {
+          500: '#22C55E',
+          300: '#86EFAC',
+        },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -95,5 +122,5 @@ export default {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [tailwindcssAnimate],
 } satisfies Config;

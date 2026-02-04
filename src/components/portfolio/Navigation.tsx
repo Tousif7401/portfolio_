@@ -44,9 +44,7 @@ const Navigation = () => {
       >
         <div className="max-w-6xl mx-auto px-6">
           <nav
-            className={`flex items-center justify-between px-6 py-3 rounded-2xl transition-all duration-300 ${
-              isScrolled ? 'glass' : ''
-            }`}
+            className="flex items-center justify-between px-6 py-3 rounded-3xl bg-white/10 backdrop-blur-md border border-white/20 shadow-lg"
           >
             {/* Logo */}
             <a
@@ -57,7 +55,7 @@ const Navigation = () => {
               }}
               className="text-xl font-bold font-mono"
             >
-              <span className="text-gradient">&lt;AC /&gt;</span>
+              <span className="bg-gradient-primary bg-clip-text text-transparent">&gt;_</span>
             </a>
 
             {/* Desktop Navigation */}
@@ -66,7 +64,7 @@ const Navigation = () => {
                 <button
                   key={item.label}
                   onClick={() => scrollToSection(item.href)}
-                  className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-secondary/50"
+                  className="px-4 py-2 text-sm text-white/80 hover:text-white transition-colors rounded-full hover:bg-white/10 hover:backdrop-blur-sm"
                 >
                   {item.label}
                 </button>
@@ -78,7 +76,7 @@ const Navigation = () => {
               <Button
                 onClick={() => scrollToSection('#contact')}
                 size="sm"
-                className="bg-gradient-to-r from-primary to-accent text-primary-foreground font-medium hover:shadow-lg hover:shadow-primary/25 transition-all"
+                className="bg-gradient-primary text-white font-medium shadow-lg hover:shadow-xl hover:shadow-purple-600/25 transition-all border-0"
               >
                 Let's Talk
               </Button>
@@ -87,7 +85,7 @@ const Navigation = () => {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-2 rounded-lg hover:bg-secondary/50 transition-colors"
+              className="md:hidden p-2 rounded-lg text-white/80 hover:text-white hover:bg-white/10 transition-colors"
               aria-label="Toggle menu"
             >
               {isMobileMenuOpen ? (

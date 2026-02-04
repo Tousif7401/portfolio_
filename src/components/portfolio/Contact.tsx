@@ -1,6 +1,6 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
-import { Send, Mail, MapPin, Github, Linkedin, Twitter, ArrowUpRight } from 'lucide-react';
+import { Send, Mail, MapPin, Github, Linkedin, Instagram, ArrowUpRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -22,12 +22,16 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    // Create Gmail compose URL
+    const subject = encodeURIComponent(`New message from ${formData.name}`);
+    const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`);
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=Tousif.cse.rymec@gmail.com&su=${subject}&body=${body}`;
+    
+    window.open(gmailUrl, '_blank');
 
     toast({
-      title: 'Message sent!',
-      description: "Thanks for reaching out. I'll get back to you soon.",
+      title: 'Opening Gmail...',
+      description: "Gmail will open in a new tab with your message pre-filled.",
     });
 
     setFormData({ name: '', email: '', message: '' });
@@ -35,14 +39,14 @@ const Contact = () => {
   };
 
   const contactInfo = [
-    { icon: Mail, label: 'Email', value: 'alex@example.com', href: 'mailto:alex@example.com' },
-    { icon: MapPin, label: 'Location', value: 'San Francisco, CA', href: '#' },
+    { icon: Mail, label: 'Email', value: 'Tousif.cse.rymec@gmail.com', href: 'mailto:Tousif.cse.rymec@gmail.com' },
+    { icon: MapPin, label: 'Location', value: 'Ballari, Karnataka', href: '#' },
   ];
 
   const socials = [
-    { icon: Github, label: 'GitHub', href: '#' },
-    { icon: Linkedin, label: 'LinkedIn', href: '#' },
-    { icon: Twitter, label: 'Twitter', href: '#' },
+    { icon: Github, label: 'GitHub', href: 'https://github.com/Tousif7401' },
+    { icon: Linkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/in/mohammed-tousif-342306171/' },
+    { icon: Mail, label: 'Email', href: 'mailto:Tousif.cse.rymec@gmail.com' },
   ];
 
   return (
@@ -85,7 +89,7 @@ const Contact = () => {
                   </label>
                   <Input
                     id="name"
-                    placeholder="John Doe"
+                    placeholder="Your Name"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     required
@@ -99,7 +103,7 @@ const Contact = () => {
                   <Input
                     id="email"
                     type="email"
-                    placeholder="john@example.com"
+                    placeholder="your.email@example.com"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     required
@@ -114,7 +118,7 @@ const Contact = () => {
                 </label>
                 <Textarea
                   id="message"
-                  placeholder="Tell me about your project..."
+                  placeholder="Have an idea in mind? I’d love to hear about it..."
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   required
@@ -184,6 +188,8 @@ const Contact = () => {
                   <a
                     key={social.label}
                     href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     aria-label={social.label}
                     className="group p-3 rounded-xl bg-secondary/50 hover:bg-primary/20 transition-all duration-300"
                   >
@@ -199,7 +205,9 @@ const Contact = () => {
                 Prefer a quick chat?
               </p>
               <a
-                href="#"
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=Tousif.cse.rymec@gmail.com&su=Schedule%20a%20Call&body=Hi%20Mohammed,%0A%0AI%20would%20like%20to%20schedule%20a%20call%20with%20you."
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group inline-flex items-center gap-2 font-semibold text-primary hover:text-accent transition-colors"
               >
                 Schedule a call

@@ -2,6 +2,7 @@ import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { ExternalLink, Github, ArrowUpRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { MagicCard } from '@/components/ui/magic-card';
 import { fadeUpVariants, staggerSlowContainerVariants } from '@/lib/animations';
 
 const Projects = () => {
@@ -10,37 +11,37 @@ const Projects = () => {
 
   const projects = [
     {
-      title: 'DevFlow',
-      description: 'A modern project management platform for developer teams with real-time collaboration, sprint planning, and automated workflows.',
-      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80',
-      tags: ['React', 'TypeScript', 'Node.js', 'PostgreSQL'],
+      title: 'Clynicare: Innovative Health-Tech Platform',
+      description: 'A cutting-edge health-tech platform that streamlines medical services with secure user authentication and real-time appointment scheduling, enhancing both patient and provider experiences.',
+      image: '/Clynicare.png',
+      tags: ['NextJs', 'TypeScript', 'Node.js', 'ExpressJS', 'MongoDB', 'TailwindCSS'],
       github: '#',
       live: '#',
       featured: true,
     },
     {
-      title: 'CryptoTrack',
-      description: 'Real-time cryptocurrency portfolio tracker with advanced analytics, price alerts, and DeFi protocol integrations.',
-      image: 'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=800&q=80',
-      tags: ['Next.js', 'Web3.js', 'TailwindCSS', 'Chart.js'],
+      title: 'JEEL:Email Relibility Platform',
+      description: 'A robust email reliability platform for B2B SaaS companies that ensures seamless failover and proactive monitoring, preventing infrastructure disasters.',
+      image: '/Jeel.png',
+      tags: ['Next.Js', 'RestAPI', 'TailwindCSS', 'Node.js', 'ExpressJS'],
       github: '#',
       live: '#',
       featured: true,
     },
     {
-      title: 'AI Content Studio',
-      description: 'AI-powered content generation platform with multi-modal capabilities for text, images, and code generation.',
-      image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80',
-      tags: ['Python', 'FastAPI', 'OpenAI', 'React'],
+      title: 'Microfinance Platform',
+      description: 'A robust microfinance platform designed to facilitate secure and efficient financial services, featuring role-based access control for personalized user permissions and streamlined financial management across multiple user tiers.',
+      image: 'MicroFinance.png',
+      tags: ['React.Js', 'RestAPI', 'MaterialUI', 'Node.js', 'ExpressJS','SwaggerAPI','RestAPI','SendGrid'],
       github: '#',
       live: '#',
       featured: true,
     },
     {
-      title: 'EcoTravel',
-      description: 'Sustainable travel booking platform that calculates carbon footprint and suggests eco-friendly alternatives.',
-      image: 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&q=80',
-      tags: ['Vue.js', 'Express', 'MongoDB', 'MapBox'],
+      title: 'Military Asset Management System',
+      description: 'A robust platform designed to manage and track military assets across multiple bases, featuring role-based access control for enhanced security and coordination.',
+      image: '/MAMS.png',
+      tags: ['React.js','Node.js', 'ExpressJs', 'MySQL', 'TailwindCSS'],
       github: '#',
       live: '#',
       featured: false,
@@ -81,7 +82,7 @@ const Projects = () => {
               variants={fadeUpVariants}
               className={`group relative ${project.featured ? 'md:col-span-1' : ''}`}
             >
-              <div className="relative overflow-hidden rounded-2xl glass hover:border-primary/30 transition-all duration-500">
+              <MagicCard className="relative overflow-hidden">
                 {/* Project Image */}
                 <div className="relative h-64 overflow-hidden">
                   <motion.img
@@ -89,26 +90,23 @@ const Projects = () => {
                     alt={project.title}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent opacity-80" />
-                  
-                  {/* Hover Overlay */}
-                  <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent opacity-80" />
                   
                   {/* Quick Links */}
                   <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
                     <a
                       href={project.github}
-                      className="p-2 rounded-full glass hover:bg-primary/20 transition-colors"
+                      className="p-2 rounded-full bg-slate-800/50 backdrop-blur-sm hover:bg-purple-500/20 transition-colors"
                       aria-label="View GitHub"
                     >
-                      <Github className="w-5 h-5" />
+                      <Github className="w-5 h-5 text-white" />
                     </a>
                     <a
                       href={project.live}
-                      className="p-2 rounded-full glass hover:bg-primary/20 transition-colors"
+                      className="p-2 rounded-full bg-slate-800/50 backdrop-blur-sm hover:bg-purple-500/20 transition-colors"
                       aria-label="View Live"
                     >
-                      <ExternalLink className="w-5 h-5" />
+                      <ExternalLink className="w-5 h-5 text-white" />
                     </a>
                   </div>
                 </div>
@@ -116,13 +114,13 @@ const Projects = () => {
                 {/* Project Info */}
                 <div className="p-6">
                   <div className="flex items-start justify-between mb-3">
-                    <h3 className="text-xl font-bold group-hover:text-primary transition-colors">
+                    <h3 className="text-xl font-bold text-white">
                       {project.title}
                     </h3>
-                    <ArrowUpRight className="w-5 h-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
+                    <ArrowUpRight className="w-5 h-5 text-gray-400 group-hover:text-purple-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
                   </div>
                   
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                  <p className="text-gray-300 text-sm leading-relaxed mb-4">
                     {project.description}
                   </p>
 
@@ -131,14 +129,14 @@ const Projects = () => {
                     {project.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="px-3 py-1 text-xs font-mono rounded-full bg-secondary/50 text-muted-foreground"
+                        className="px-3 py-1 text-xs font-mono rounded-full bg-slate-800 text-gray-300"
                       >
                         {tag}
                       </span>
                     ))}
                   </div>
                 </div>
-              </div>
+              </MagicCard>
             </motion.div>
           ))}
         </motion.div>

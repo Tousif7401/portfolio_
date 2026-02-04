@@ -1,6 +1,7 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Briefcase, GraduationCap, Award } from 'lucide-react';
+import { MagicCard } from '@/components/ui/magic-card';
 import { fadeUpVariants, slideInLeftVariants, staggerContainerVariants } from '@/lib/animations';
 
 const Experience = () => {
@@ -10,42 +11,36 @@ const Experience = () => {
   const experiences = [
     {
       type: 'work',
-      title: 'Senior Frontend Developer',
-      company: 'TechCorp Inc.',
-      period: '2022 - Present',
-      description: 'Leading frontend architecture and mentoring a team of 5 developers. Implemented design system that improved development velocity by 40%.',
-      skills: ['React', 'TypeScript', 'GraphQL'],
-    },
-    {
-      type: 'work',
       title: 'Full-Stack Developer',
-      company: 'StartupXYZ',
-      period: '2020 - 2022',
-      description: 'Built and scaled a SaaS platform from 0 to 50K users. Designed RESTful APIs and optimized database queries reducing load times by 60%.',
-      skills: ['Node.js', 'PostgreSQL', 'AWS'],
-    },
-    {
-      type: 'work',
-      title: 'Junior Developer',
-      company: 'Digital Agency',
-      period: '2019 - 2020',
+      company: 'ZYPTR',
+      period: '2025 - Present',
       description: 'Developed responsive websites and e-commerce solutions for clients across various industries. Collaborated with designers on UX improvements.',
-      skills: ['JavaScript', 'CSS', 'WordPress'],
+      skills: ['JavaScript', 'TailwindCSS', 'React', 'Node.js', 'Express.js', 'MySQL', 'Git','sequelize ORM','RestAPI'],
     },
     {
       type: 'education',
-      title: 'B.S. Computer Science',
-      company: 'University of Technology',
-      period: '2015 - 2019',
+      title: 'B.E. Computer Science',
+      company: 'RYMEC, Ballari',
+      period: '2022 - 2025',
       description: 'Graduated with honors. Focused on software engineering and human-computer interaction. Led the university coding club.',
       skills: ['Algorithms', 'Data Structures', 'HCI'],
+    },
+    {
+      type: 'education',
+      title: 'Diploma in Electronics and Communications',
+      company: 'Government Polytechnic Ballari',
+      period: '2018 - 2020',
+      description: 'Gained a solid foundation in electronics and communication principles, including circuit design, signal processing, and communication systems. Developed hands-on skills through practical labs and projects, laying the groundwork for advanced studies and professional growth.',
+      skills: ['Analog Communication', 'Radars', 'Digital Communication','Microprocessors','Medical Electronics' ],
     },
   ];
 
   const achievements = [
-    { icon: Award, title: 'AWS Certified Developer', year: '2023' },
-    { icon: Award, title: 'Google UX Design Certificate', year: '2022' },
-    { icon: Award, title: 'Hackathon Winner - TechFest', year: '2021' },
+    { icon: Award, title: 'Innovation, Development & Entrepreneurship Competitions – Active participant (only for selected candidates)', year: '2024' },
+    { icon: Award, title: 'Smart India Hackathon 2023 – Grand Finalist', year: '2023' },
+    { icon: Award, title: 'Hackathon Winner - RYMEC', year: '2022' },
+    { icon: Award, title: 'One-Day Web Design Winner - RYMEC', year: '2022' },
+
   ];
 
   return (
@@ -94,25 +89,25 @@ const Experience = () => {
                   </div>
 
                   {/* Content Card */}
-                  <div className="group p-6 rounded-2xl glass hover:border-primary/30 transition-all duration-300 hover-glow">
+                  <MagicCard className="p-6">
                     <div className="flex flex-wrap items-center gap-3 mb-3">
-                      <div className="p-2 rounded-lg bg-primary/10">
+                      <div className="p-2 rounded-lg bg-purple-500/20">
                         {exp.type === 'work' ? (
-                          <Briefcase className="w-4 h-4 text-primary" />
+                          <Briefcase className="w-4 h-4 text-purple-400" />
                         ) : (
-                          <GraduationCap className="w-4 h-4 text-primary" />
+                          <GraduationCap className="w-4 h-4 text-purple-400" />
                         )}
                       </div>
-                      <span className="text-sm font-mono text-muted-foreground">
+                      <span className="text-sm font-mono text-gray-400">
                         {exp.period}
                       </span>
                     </div>
 
-                    <h3 className="text-xl font-bold mb-1 group-hover:text-primary transition-colors">
+                    <h3 className="text-xl font-bold mb-1 text-white">
                       {exp.title}
                     </h3>
-                    <p className="text-primary/80 font-medium mb-3">{exp.company}</p>
-                    <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                    <p className="text-blue-400 font-medium mb-3">{exp.company}</p>
+                    <p className="text-gray-300 text-sm leading-relaxed mb-4">
                       {exp.description}
                     </p>
 
@@ -120,13 +115,13 @@ const Experience = () => {
                       {exp.skills.map((skill) => (
                         <span
                           key={skill}
-                          className="px-3 py-1 text-xs font-mono rounded-full bg-secondary/50 text-muted-foreground"
+                          className="px-3 py-1 text-xs font-mono rounded-full bg-slate-800 text-gray-300"
                         >
                           {skill}
                         </span>
                       ))}
                     </div>
-                  </div>
+                  </MagicCard>
                 </motion.div>
               ))}
             </div>
@@ -151,17 +146,18 @@ const Experience = () => {
                   initial={{ opacity: 0, y: 10 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ delay: 0.4 + index * 0.1 }}
-                  className="group p-4 rounded-xl glass hover:border-primary/30 transition-all duration-300"
                 >
+                <MagicCard className="p-4">
                   <div className="flex items-center gap-3">
-                    <div className="p-2 rounded-lg bg-gradient-to-r from-primary/20 to-accent/20 group-hover:from-primary/30 group-hover:to-accent/30 transition-colors">
-                      <achievement.icon className="w-4 h-4 text-primary" />
+                    <div className="p-2 rounded-lg bg-purple-500/20">
+                      <achievement.icon className="w-4 h-4 text-purple-400" />
                     </div>
                     <div>
-                      <p className="font-medium text-sm">{achievement.title}</p>
-                      <p className="text-xs text-muted-foreground">{achievement.year}</p>
+                      <p className="font-medium text-sm text-white">{achievement.title}</p>
+                      <p className="text-xs text-gray-400">{achievement.year}</p>
                     </div>
                   </div>
+                </MagicCard>
                 </motion.div>
               ))}
             </div>
@@ -174,8 +170,8 @@ const Experience = () => {
               <div className="space-y-4">
                 {[
                   { label: 'Lines of Code', value: '500K+' },
-                  { label: 'Open Source Contributions', value: '120+' },
-                  { label: 'GitHub Stars', value: '2.5K' },
+                  { label: 'Project Collaborations', value: '10+' },
+                  { label: 'Community Engagement', value: '10+' },
                 ].map((stat) => (
                   <div key={stat.label} className="flex justify-between items-center">
                     <span className="text-sm text-muted-foreground">{stat.label}</span>
