@@ -3,6 +3,7 @@ import { useRef } from 'react';
 import { ExternalLink, Github, ArrowUpRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { MagicCard } from '@/components/ui/magic-card';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { fadeUpVariants, staggerSlowContainerVariants } from '@/lib/animations';
 
 const Projects = () => {
@@ -94,20 +95,42 @@ const Projects = () => {
                   
                   {/* Quick Links */}
                   <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
-                    <a
-                      href={project.github}
-                      className="p-2 rounded-full bg-slate-800/50 backdrop-blur-sm hover:bg-purple-500/20 transition-colors"
-                      aria-label="View GitHub"
-                    >
-                      <Github className="w-5 h-5 text-white" />
-                    </a>
-                    <a
-                      href={project.live}
-                      className="p-2 rounded-full bg-slate-800/50 backdrop-blur-sm hover:bg-purple-500/20 transition-colors"
-                      aria-label="View Live"
-                    >
-                      <ExternalLink className="w-5 h-5 text-white" />
-                    </a>
+                    <TooltipProvider>
+                      <Tooltip>
+                        <TooltipTrigger asChild>
+                          <a
+                            href={project.github}
+                            className="p-2 rounded-full bg-slate-800/50 backdrop-blur-sm hover:bg-purple-500/20 transition-colors"
+                            aria-label="View GitHub"
+                          >
+                            <Github className="w-5 h-5 text-white" />
+                          </a>
+                        </TooltipTrigger>
+                        {project.title.includes('JEEL') && (
+                          <TooltipContent side="bottom">
+                            <p>MVP not ready</p>
+                          </TooltipContent>
+                        )}
+                      </Tooltip>
+                    </TooltipProvider>
+                    <TooltipProvider>
+                      <Tooltip>
+                        <TooltipTrigger asChild>
+                          <a
+                            href={project.live}
+                            className="p-2 rounded-full bg-slate-800/50 backdrop-blur-sm hover:bg-purple-500/20 transition-colors"
+                            aria-label="View Live"
+                          >
+                            <ExternalLink className="w-5 h-5 text-white" />
+                          </a>
+                        </TooltipTrigger>
+                        {project.title.includes('JEEL') && (
+                          <TooltipContent side="bottom">
+                            <p>MVP not ready</p>
+                          </TooltipContent>
+                        )}
+                      </Tooltip>
+                    </TooltipProvider>
                   </div>
                 </div>
 
