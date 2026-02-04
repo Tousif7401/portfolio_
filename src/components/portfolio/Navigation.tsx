@@ -106,11 +106,11 @@ const Navigation = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-40 md:hidden"
+            className="fixed inset-0 z-[100] md:hidden"
           >
             {/* Backdrop */}
             <div
-              className="absolute inset-0 bg-background/80 backdrop-blur-lg"
+              className="absolute inset-0 bg-black bg-opacity-50"
               onClick={() => setIsMobileMenuOpen(false)}
             />
 
@@ -120,7 +120,7 @@ const Navigation = () => {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-              className="absolute right-0 top-0 bottom-0 w-3/4 max-w-sm glass border-l border-border/50 p-6 pt-24"
+              className="absolute right-0 top-0 bottom-0 w-3/4 max-w-sm bg-slate-900 border-l border-slate-700 p-6 pt-24"
             >
               <div className="space-y-2">
                 {navItems.map((item, index) => (
@@ -130,7 +130,7 @@ const Navigation = () => {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.05 }}
                     onClick={() => scrollToSection(item.href)}
-                    className="block w-full text-left px-4 py-3 text-lg font-medium text-muted-foreground hover:text-foreground hover:bg-secondary/50 rounded-xl transition-colors"
+                    className="block w-full text-left px-4 py-3 text-lg font-medium text-white hover:text-purple-400 hover:bg-slate-800/50 rounded-xl transition-colors"
                   >
                     {item.label}
                   </motion.button>
@@ -145,7 +145,7 @@ const Navigation = () => {
               >
                 <Button
                   onClick={() => scrollToSection('#contact')}
-                  className="w-full bg-gradient-to-r from-primary to-accent text-primary-foreground font-semibold py-6"
+                  className="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-6"
                 >
                   Let's Talk
                 </Button>

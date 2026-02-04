@@ -151,7 +151,7 @@ const Projects = () => {
           <Button
             variant="outline"
             size="lg"
-            className="gradient-border bg-background/50 border-0 font-semibold px-8 hover:bg-secondary/50"
+            className="bg-black text-white border-black font-semibold px-8 hover:bg-gray-800"
           >
             View All Projects
             <ArrowUpRight className="w-4 h-4 ml-2" />

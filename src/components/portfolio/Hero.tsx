@@ -62,7 +62,7 @@ const Hero = () => {
           >
             <Button
               size="lg"
-              className="group relative overflow-hidden bg-gradient-primary backdrop-blur-md border border-purple-500/30 text-white font-semibold px-8 py-6 text-lg shadow-lg hover:shadow-xl hover:shadow-purple-600/25 transition-all duration-300"
+              className="group relative overflow-hidden bg-black border border-gray-800 text-white font-semibold px-8 py-6 text-lg shadow-lg hover:shadow-xl hover:bg-gray-800 transition-all duration-300"
               onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
             >
               <span className="relative z-10 flex items-center gap-2">
