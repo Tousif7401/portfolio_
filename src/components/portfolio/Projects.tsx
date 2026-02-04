@@ -43,8 +43,8 @@ const Projects = () => {
       description: 'A robust platform designed to manage and track military assets across multiple bases, featuring role-based access control for enhanced security and coordination.',
       image: '/MAMS.png',
       tags: ['React.js','Node.js', 'ExpressJs', 'MySQL', 'TailwindCSS'],
-      github: '#',
-      live: '#',
+      github: 'https://github.com/Tousif7401/mams-Frontend-',
+      live: 'https://mams-frontend-eight.vercel.app/',
       featured: false,
     },
   ];
@@ -100,6 +100,8 @@ const Projects = () => {
                         <TooltipTrigger asChild>
                           <a
                             href={project.github}
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="p-2 rounded-full bg-slate-800/50 backdrop-blur-sm hover:bg-purple-500/20 transition-colors"
                             aria-label="View GitHub"
                           >
@@ -118,6 +120,8 @@ const Projects = () => {
                         <TooltipTrigger asChild>
                           <a
                             href={project.live}
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="p-2 rounded-full bg-slate-800/50 backdrop-blur-sm hover:bg-purple-500/20 transition-colors"
                             aria-label="View Live"
                           >
