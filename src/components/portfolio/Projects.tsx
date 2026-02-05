@@ -16,8 +16,8 @@ const Projects = () => {
       description: 'A cutting-edge health-tech platform that streamlines medical services with secure user authentication and real-time appointment scheduling, enhancing both patient and provider experiences.',
       image: '/Clynicare.png',
       tags: ['NextJs', 'TypeScript', 'Node.js', 'ExpressJS', 'MongoDB', 'TailwindCSS'],
-      github: '#',
-      live: '#',
+      github: 'https://github.com/Tousif7401/clynicare',
+      live: 'https://clynicaree.vercel.app/',
       featured: true,
     },
     {
