@@ -34,11 +34,12 @@ const Navigation = () => {
 
   return (
     <>
+      {/* Desktop Navigation */}
       <motion.header
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 hidden md:block ${
           isScrolled ? 'py-4' : 'py-6'
         }`}
       >
@@ -59,7 +60,7 @@ const Navigation = () => {
             </a>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center gap-1">
+            <div className="flex items-center gap-1">
               {navItems.map((item) => (
                 <button
                   key={item.label}
@@ -72,7 +73,7 @@ const Navigation = () => {
             </div>
 
             {/* CTA Button */}
-            <div className="hidden md:block">
+            <div>
               <Button
                 onClick={() => scrollToSection('#contact')}
                 size="sm"
@@ -81,22 +82,47 @@ const Navigation = () => {
                 Let's Talk
               </Button>
             </div>
-
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-2 rounded-lg text-white/80 hover:text-white hover:bg-white/10 transition-colors"
-              aria-label="Toggle menu"
-            >
-              {isMobileMenuOpen ? (
-                <X className="w-6 h-6" />
-              ) : (
-                <Menu className="w-6 h-6" />
-              )}
-            </button>
           </nav>
         </div>
       </motion.header>
+
+      {/* Mobile Navigation */}
+      <div className="md:hidden">
+        {/* Mobile Logo - Bottom Left */}
+        <motion.a
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6 }}
+          href="#"
+          onClick={(e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }}
+          className={`fixed bottom-6 left-6 z-50 w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 shadow-lg flex items-center justify-center transition-opacity duration-300 hover:opacity-100 ${
+            isScrolled ? 'opacity-5' : 'opacity-100'
+          }`}
+        >
+          <span className="text-lg font-bold font-mono bg-gradient-primary bg-clip-text text-transparent">&gt;_</span>
+        </motion.a>
+
+        {/* Mobile Menu Button - Top Right */}
+        <motion.button
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          className={`fixed top-6 right-6 z-50 w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 shadow-lg flex items-center justify-center text-white/80 hover:text-white transition-all duration-300 hover:opacity-100 ${
+            isScrolled ? 'opacity-5' : 'opacity-100'
+          }`}
+          aria-label="Toggle menu"
+        >
+          {isMobileMenuOpen ? (
+            <X className="w-5 h-5" />
+          ) : (
+            <Menu className="w-5 h-5" />
+          )}
+        </motion.button>
+      </div>
 
       {/* Mobile Menu */}
       <AnimatePresence>

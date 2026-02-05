@@ -74,6 +74,12 @@ const Hero = () => {
               variant="outline"
               size="lg"
               className="group bg-slate-800/50 backdrop-blur-md border-2 border-slate-700 text-white font-semibold px-8 py-6 text-lg hover:bg-slate-700/50 hover:border-purple-600/30 transition-all duration-300"
+              onClick={() => {
+                const link = document.createElement('a');
+                link.href = '/Tousif\'s_Resume.pdf';
+                link.download = 'Tousif\'s_Resume.pdf';
+                link.click();
+              }}
             >
               <FileText className="w-5 h-5 mr-2" />
               Download Resume

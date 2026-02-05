@@ -21,9 +21,9 @@ const Experience = () => {
       type: 'education',
       title: 'B.E. Computer Science',
       company: 'RYMEC, Ballari',
-      period: '2022 - 2025',
+      period: '2023 - 2025',
       description: 'Graduated with honors. Focused on software engineering and human-computer interaction. Led the university coding club.',
-      skills: ['Algorithms', 'Data Structures', 'HCI'],
+      skills: ['Web Development','Algorithms', 'Database Systems','Data Structures', 'Cloud Computing', 'Mobile App Development'],
     },
     {
       type: 'education',
